@@ -100,7 +100,7 @@
                     page_no_<?php echo $t; ?>++;
                 },1000);
             }
-            <?php } ?>        
+            <?php } ?>
         </script>
     </body>
 </html>
