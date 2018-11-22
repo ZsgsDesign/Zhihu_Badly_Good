@@ -1,7 +1,7 @@
 <?php
 
 require_once("core/conn.php");
-$rs=$db->query("select * from answer where type='answer' order by rand() limit 1;");
+$rs=$db->query("(select * from answer where voteup_count>=1000 and length(content)<=50 group by id )order by rand() limit 1;");
 if($row=$rs->fetch()){
     $question=$row["question"];
     $content=$row["content"];
@@ -68,7 +68,7 @@ if($row=$rs->fetch()){
     </head>
     <body>
         <div class="container">
-            <div>
+            <div style="width:100%;">
                 <h5><i class="MDI comment-question-outline"></i> <?php echo $question; ?></h5>
                 <h1><?php echo $content; ?></h1>
                 <p class="brand-container">Via <a href="<?php echo $url; ?>"><img class="z-brand" src="https://static.1cf.co/img/Zhihu_logo.svg" alt="知乎"></a></p>
