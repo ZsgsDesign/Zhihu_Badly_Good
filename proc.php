@@ -1,6 +1,7 @@
 <?php
 
 require_once("core/conn.php");
+
 ini_set("max_execution_time", "600");
 
 function get_answers_by_page($topic_id, $page_no){
