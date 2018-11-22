@@ -1,5 +1,7 @@
 <?php
 
+exit("Forbidden");
+
 require_once("core/conn.php");
 
 ini_set("max_execution_time", "600");
