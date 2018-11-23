@@ -58,6 +58,7 @@ if(!empty($ret)){
                 text-align:right;
                 padding-right:1rem;
                 margin-top:5rem;
+                margin-bottom:0;
             }
             h5,h1,p{
                 opacity: 0;
