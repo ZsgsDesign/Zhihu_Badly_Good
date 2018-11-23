@@ -4,7 +4,8 @@ Selected Badly Good Zhihu Replies for you
 
 ## Author
 
-My name's John and here's my blog 
+My name's John and here's my blog
+
 [张佑杰的个人博客](https://www.johnzhang.xyz/)
 
 ## General Ideas
@@ -18,7 +19,7 @@ This little PHP project provides you with a tool that could select Zhihu's badly
 
 So it's easy for us to locate most of the badly good replies with the following SQL query:
 ```
-select * from answer where voteup_count>=1000 and length(content)<=50;
+select * from answer where voteup_count>=1000 and CHAR_LENGTH(content)<=50;
 ```
 In which voteup_count means total votes one reply have.
 

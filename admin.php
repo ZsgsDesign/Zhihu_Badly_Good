@@ -1,5 +1,15 @@
 <?php
+
+    require_once("core/conn.php");
     require_once("core/config.php");
+    $process=[];
+    foreach($topic_ids as $t){
+        $process[$t]=-1;
+    }
+    $rs=$db->query("select topic_id,LEAST(999,MAX(page_no)) page_max_no from saved_topics group by topic_id;");
+    while($row=$rs->fetch()){
+        $process[$row["topic_id"]]=intval($row["page_max_no"]);
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -59,9 +69,9 @@
         <div class="container">
             <?php foreach($topic_ids as $t){ ?>
             <card>
-                <h5><i class="MDI brightness- text-warning" id="icon_<?php echo $t; ?>" onclick="get_<?php echo $t; ?>()"></i> 分类 <?php echo $t; ?></h5>
+                <h5><i class="MDI brightness- text-<?php if($process[$t]<0) echo "warning"; elseif($process[$t]==999) echo "success"; else echo "info"; ?>" id="icon_<?php echo $t; ?>" onclick="get_<?php echo $t; ?>()"></i> 分类 <?php echo $t; ?></h5>
                 <div>
-                    <p><span id="tot_<?php echo $t; ?>">0</span>页已完成</p>
+                    <p><span id="tot_<?php echo $t; ?>"><?php echo $process[$t]+1; ?></span>页已完成</p>
                 </div>
             </card>
             <?php } ?>
@@ -76,12 +86,15 @@
                 }
                 console.log("开始处理 : <?php echo $t; ?>");
                 use_get_<?php echo $t; ?>=true;
-                var page_no_<?php echo $t; ?>=0;
+                if($("#icon_<?php echo $t; ?>").hasClass("text-success"))return ;
+                var page_no_<?php echo $t; ?>=<?php echo $process[$t]+1; ?>;
                 var timer_<?php echo $t; ?> = setInterval(function(){
+                    if($("#icon_<?php echo $t; ?>").hasClass("text-success"))return ;
                     $.get("ans.php",{
                         "topic_id":<?php echo $t; ?>,
                         "page_no":page_no_<?php echo $t; ?>
                     },function(result){
+                        if($("#icon_<?php echo $t; ?>").hasClass("text-success"))return ;
                         result=JSON.parse(result);
                         console.log(result);
                         if(result.ret==200){
