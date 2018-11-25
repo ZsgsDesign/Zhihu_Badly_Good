@@ -2,6 +2,9 @@
 
     require_once("core/conn.php");
     require_once("core/config.php");
+
+    if($strict_mode) exit("Forbidden");
+
     $process=[];
     foreach($topic_ids as $t){
         $process[$t]=-1;
@@ -29,6 +32,15 @@
         <link rel="stylesheet" href="https://static.1cf.co/fonts/MDI-WXSS/MDI.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <style>
+            ::-moz-selection {
+                background: #b3d4fc;
+                text-shadow: none
+            }
+            
+            ::selection {
+                background: #b3d4fc;
+                text-shadow: none
+            }
             body{
                 background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
             }

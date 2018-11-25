@@ -3,6 +3,8 @@
 require_once("core/conn.php");
 require_once("core/config.php");
 
+if($strict_mode) exit("Forbidden");
+
 $topic_id=@$_GET["topic_id"];
 $page_no=@$_GET["page_no"];
 
