@@ -64,7 +64,7 @@ CREATE TABLE `answer`  (
   `voteup_count` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`aid`) USING BTREE,
   UNIQUE INDEX `id`(`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 2773 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for saved_topics
@@ -75,7 +75,7 @@ CREATE TABLE `saved_topics`  (
   `topic_id` int(11) NULL DEFAULT NULL,
   `page_no` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`stid`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 3958 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 SET FOREIGN_KEY_CHECKS = 1;
 ```
