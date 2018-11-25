@@ -86,4 +86,4 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 ## Other info
 
-`proc.php` contains the primitive version of admin.php, check that for more inspiration. Also, think about the advantages and disadvantages proc.php have.
+`proc.php` contains the primitive version of `admin.php`, check that for more inspiration. Also, think about the advantages and disadvantages `proc.php` have.
