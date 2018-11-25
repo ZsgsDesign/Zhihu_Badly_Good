@@ -45,7 +45,7 @@ Well, of course I am not single but the point is, likewise, you can also give ni
 
 `zhihu.sql` contains all the answers I get,this is great for those who are lazy to get the data.
 
-If you want to have a fresh start, try build a new database from sketch:
+If you want to have a fresh start, try build a new database from sketch using UTF8MB4:
 ```
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
